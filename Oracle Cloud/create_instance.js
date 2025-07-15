@@ -6,6 +6,8 @@
 // @match        https://cloud.oracle.com/compute/instances/create/*
 // @grant        none
 // @run-at       document-idle
+// @updateURL    https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create_instance.js
+// @downloadURL  https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create_instance.js
 // ==/UserScript==
 
 (function () {
