@@ -2,8 +2,8 @@
 // @name         Oracle Auto-Click Create
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Clique sur le bouton "Create" dans une iframe Oracle toutes les 30s, avec Start/Stop, exécution immédiate et compte à rebours visuel.
-// @author       Hotman (corrigé par Gemini)
+// @description  Clique sur "Create" toutes les 30s. S'arrête si le bouton n'est pas trouvé. Avec Start/Stop et compte à rebours.
+// @author       Hotman
 // @match        https://cloud.oracle.com/*
 // @grant        none
 // @run-at       document-idle
@@ -63,7 +63,8 @@
     stopBtn.textContent = "⏹️ Stop";
     stopBtn.disabled = true;
     stopBtn.style.cursor = "pointer";
-    stopBtn.onclick = stop;
+    // On assigne une fonction anonyme pour pouvoir passer un message personnalisé
+    stopBtn.onclick = () => stop("🔴 Script arrêté manuellement par l'utilisateur.");
 
     controls.appendChild(startBtn);
     controls.appendChild(stopBtn);
@@ -98,7 +99,11 @@
         startCountdownTimer();
     }
 
-    function stop() {
+    /**
+     * Arrête le script et nettoie les intervalles.
+     * @param {string} reason - Le message à afficher dans la barre de statut.
+     */
+    function stop(reason = "🔴 Script arrêté.") {
         if (!running) return;
         running = false;
 
@@ -110,7 +115,7 @@
 
         startBtn.disabled = false;
         stopBtn.disabled = true;
-        updateStatus("🔴 Script arrêté.", "#c0392b");
+        updateStatus(reason, "#c0392b");
     }
 
     // --- Logique principale du script ---
@@ -150,11 +155,12 @@
                     updateStatus(`⚠️ Bouton trouvé mais non visible/cliquable. Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#e67e22");
                 }
             } else {
-                updateStatus(`⚠️ Bouton 'Create' non trouvé. Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#e67e22");
+                // **MODIFICATION CLÉ : Si le bouton n'est pas trouvé, on arrête tout.**
+                stop("🔴 Bouton 'Create' non trouvé. Le script est arrêté.");
             }
         } catch (err) {
             // Gérer les erreurs de sécurité cross-origin qui peuvent survenir
-            updateStatus(`❌ Erreur d'accès à l'iframe: ${err.message}`, "#c0392b");
+            stop(`❌ Erreur d'accès à l'iframe: ${err.message}. Le script est arrêté.`);
             console.error("[AutoCreate] 💥 Erreur :", err);
         }
     }
@@ -173,15 +179,16 @@
                 clearInterval(countdownIntervalId);
                 return;
             }
-
-            // Mettre à jour le texte du statut avec le compte à rebours,
-            // mais seulement si le statut actuel n'est pas un message d'erreur ou de succès important.
+            
+            // Mettre à jour le texte du statut avec le compte à rebours
             if (statusText.textContent.includes("Prochaine tentative")) {
                  const baseMessage = statusText.textContent.split(" Prochaine tentative")[0];
                  statusText.textContent = `${baseMessage} Prochaine tentative dans ${countdown}s.`;
             }
 
-            countdown--;
+            if (countdown > 0) {
+                countdown--;
+            }
         }, 1000);
     }
 
