@@ -1,6 +1,5 @@
 // ==UserScript==
 // @name         Oracle Cloud Create Instance Auto-Click
-// @namespace    mailto:othman.amor@gmail.com
 // @version      1.0
 // @description  Buttons to start or stop clicking the “Create” button every 30s. Stops if the button is not found.
 // @author       Hotman
