@@ -9,6 +9,8 @@
 // @run-at       document-idle
 // @updateURL    https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js
 // @downloadURL  https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js
+// @homepageURL  https://github.com/Hotman75/Tampermonkey
+// @supportURL   https://github.com/Hotman75/Tampermonkey/issues
 // ==/UserScript==
 
 (function () {
