@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Oracle Auto-Click Create
-// @namespace    http://tampermonkey.net/
+// @name         Oracle Cloud Create Instance Auto-Click
+// @namespace    mailto:othman.amor@gmail.com
 // @version      1.0
-// @description  Clique sur "Create" toutes les 30s. S'arrête si le bouton n'est pas trouvé. Avec Start/Stop, compte à rebours et style visuel pour les boutons désactivés.
+// @description  Buttons to start or stop clicking the “Create” button every 30s. Stops if the button is not found.
 // @author       Hotman
-// @match        https://cloud.oracle.com/*
+// @match        https://cloud.oracle.com/compute/instances/create/*
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
@@ -12,8 +12,8 @@
 (function () {
     'use strict';
 
-    // S'assurer que le script ne s'exécute que dans la fenêtre principale
-    // et qu'une seule instance de la barre d'état est créée.
+    // Ensure the script runs only in the main window
+    // and that only one instance of the status bar is created.
     if (window.top !== window.self || document.getElementById('autoCreateStatusBar')) {
         return;
     }
@@ -24,7 +24,7 @@
     let countdownIntervalId = null;
     let countdown = INTERVAL_SECONDS;
 
-    // --- MODIFICATION : Amélioration des styles CSS ---
+    // --- MODIFICATION: Improve CSS styles ---
     const style = document.createElement('style');
     style.textContent = `
         #autoCreateStatusBar button {
@@ -38,8 +38,7 @@
     `;
     document.head.appendChild(style);
 
-
-    // --- Création de l'interface utilisateur (barre de statut) ---
+    // --- Create the user interface (status bar) ---
     const statusBar = document.createElement("div");
     statusBar.id = 'autoCreateStatusBar';
     statusBar.setAttribute("style", `
@@ -76,7 +75,7 @@
     const stopBtn = document.createElement("button");
     stopBtn.textContent = "⏹️ Stop";
     stopBtn.disabled = true;
-    stopBtn.onclick = () => stop("🔴 Script arrêté manuellement par l'utilisateur.");
+    stopBtn.onclick = () => stop("🔴 Script manually stopped by the user.");
 
     controls.appendChild(startBtn);
     controls.appendChild(stopBtn);
@@ -84,8 +83,7 @@
     statusBar.appendChild(controls);
     document.body.appendChild(statusBar);
 
-
-    // --- Fonctions de l'interface ---
+    // --- UI Functions ---
 
     function updateStatus(text, color = "#333") {
         statusBar.style.backgroundColor = color;
@@ -99,14 +97,14 @@
 
         startBtn.disabled = true;
         stopBtn.disabled = false;
-        updateStatus("🟢 Script démarré. Tentative de clic initiale...", "#16a085");
+        updateStatus("🟢 Script started. Trying first click...", "#16a085");
 
         attemptClick();
         clickIntervalId = setInterval(attemptClick, INTERVAL_SECONDS * 1000);
         startCountdownTimer();
     }
 
-    function stop(reason = "🔴 Script arrêté.") {
+    function stop(reason = "🔴 Script stopped.") {
         if (!running) return;
         running = false;
 
@@ -120,7 +118,7 @@
         updateStatus(reason, "#c0392b");
     }
 
-    // --- Logique principale du script ---
+    // --- Main script logic ---
 
     function attemptClick() {
         if (!running) return;
@@ -131,7 +129,7 @@
         const iframeReady = iframe && iframe.contentWindow && iframe.contentWindow.document && iframe.contentWindow.document.readyState === "complete";
 
         if (!iframeReady) {
-            updateStatus(`⏳ Iframe introuvable ou pas encore prête. Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#f39c12");
+            updateStatus(`⏳ Iframe not found or not ready. Retrying in ${INTERVAL_SECONDS}s.`, "#f39c12");
             return;
         }
 
@@ -142,16 +140,16 @@
             if (createBtn) {
                 if (createBtn.offsetParent !== null && !createBtn.disabled) {
                     createBtn.click();
-                    updateStatus(`✅ Bouton 'Create' cliqué ! Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#27ae60");
+                    updateStatus(`✅ 'Create' button clicked! Next attempt in ${INTERVAL_SECONDS}s.`, "#27ae60");
                 } else {
-                    updateStatus(`⚠️ Bouton trouvé mais non visible/cliquable. Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#e67e22");
+                    updateStatus(`⚠️ Button found but not visible/clickable. Next attempt in ${INTERVAL_SECONDS}s.`, "#e67e22");
                 }
             } else {
-                stop("🔴 Bouton 'Create' non trouvé. Le script est arrêté.");
+                stop("🔴 'Create' button not found. Script stopped.");
             }
         } catch (err) {
-            stop(`❌ Erreur d'accès à l'iframe: ${err.message}. Le script est arrêté.`);
-            console.error("[AutoCreate] 💥 Erreur :", err);
+            stop(`❌ Error accessing iframe: ${err.message}. Script stopped.`);
+            console.error("[AutoCreate] 💥 Error:", err);
         }
     }
 
@@ -166,9 +164,9 @@
                 return;
             }
 
-            if (statusText.textContent.includes("Prochaine tentative")) {
-                 const baseMessage = statusText.textContent.split(" Prochaine tentative")[0];
-                 statusText.textContent = `${baseMessage} Prochaine tentative dans ${countdown}s.`;
+            if (statusText.textContent.includes("Next attempt")) {
+                const baseMessage = statusText.textContent.split(" Next attempt")[0];
+                statusText.textContent = `${baseMessage} Next attempt in ${countdown}s.`;
             }
 
             if (countdown > 0) {
@@ -177,6 +175,6 @@
         }, 1000);
     }
 
-    updateStatus("🔲 En attente de démarrage.");
+    updateStatus("🔲 Waiting to start.");
 
 })();
