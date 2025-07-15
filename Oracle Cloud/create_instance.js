@@ -26,7 +26,7 @@
     let countdownIntervalId = null;
     let countdown = INTERVAL_SECONDS;
 
-    // --- MODIFICATION: Improve CSS styles ---
+    // Improve CSS styles
     const style = document.createElement('style');
     style.textContent = `
         #autoCreateStatusBar button {
@@ -40,7 +40,7 @@
     `;
     document.head.appendChild(style);
 
-    // --- Create the user interface (status bar) ---
+    // Create the user interface (status bar)
     const statusBar = document.createElement("div");
     statusBar.id = 'autoCreateStatusBar';
     statusBar.setAttribute("style", `
@@ -85,7 +85,7 @@
     statusBar.appendChild(controls);
     document.body.appendChild(statusBar);
 
-    // --- UI Functions ---
+    // UI Functions
 
     function updateStatus(text, color = "#333") {
         statusBar.style.backgroundColor = color;
@@ -120,7 +120,7 @@
         updateStatus(reason, "#c0392b");
     }
 
-    // --- Main script logic ---
+    // Main script logic
 
     function attemptClick() {
         if (!running) return;
