@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Buttons to start or stop clicking the “Create” button every 30s. Stops if the button is not found.
 // @author       Hotman
-// @match        https://cloud.oracle.com/compute/instances/create/*
+// @match        https://cloud.oracle.com/compute/instances/create*
 // @grant        none
 // @run-at       document-idle
 // @updateURL    https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js
