@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Oracle Auto-Click Create (Arrêt automatique)
+// @name         Oracle Auto-Click Create
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Clique sur "Create" toutes les 30s. S'arrête si le bouton n'est pas trouvé. Avec Start/Stop et compte à rebours.
+// @description  Clique sur "Create" toutes les 30s. S'arrête si le bouton n'est pas trouvé. Avec Start/Stop, compte à rebours et style visuel pour les boutons désactivés.
 // @author       Hotman
 // @match        https://cloud.oracle.com/*
 // @grant        none
@@ -23,6 +23,21 @@
     let clickIntervalId = null;
     let countdownIntervalId = null;
     let countdown = INTERVAL_SECONDS;
+
+    // --- MODIFICATION : Amélioration des styles CSS ---
+    const style = document.createElement('style');
+    style.textContent = `
+        #autoCreateStatusBar button {
+            cursor: pointer;
+            transition: opacity 0.2s ease-in-out;
+        }
+        #autoCreateStatusBar button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    `;
+    document.head.appendChild(style);
+
 
     // --- Création de l'interface utilisateur (barre de statut) ---
     const statusBar = document.createElement("div");
@@ -56,14 +71,11 @@
     const startBtn = document.createElement("button");
     startBtn.textContent = "▶️ Start";
     startBtn.style.marginRight = "10px";
-    startBtn.style.cursor = "pointer";
     startBtn.onclick = start;
 
     const stopBtn = document.createElement("button");
     stopBtn.textContent = "⏹️ Stop";
     stopBtn.disabled = true;
-    stopBtn.style.cursor = "pointer";
-    // On assigne une fonction anonyme pour pouvoir passer un message personnalisé
     stopBtn.onclick = () => stop("🔴 Script arrêté manuellement par l'utilisateur.");
 
     controls.appendChild(startBtn);
@@ -89,25 +101,15 @@
         stopBtn.disabled = false;
         updateStatus("🟢 Script démarré. Tentative de clic initiale...", "#16a085");
 
-        // Logique principale :
-        // 1. Tenter de cliquer immédiatement.
-        // 2. Puis, lancer un intervalle pour les clics suivants.
         attemptClick();
         clickIntervalId = setInterval(attemptClick, INTERVAL_SECONDS * 1000);
-
-        // Lancer le minuteur pour le compte à rebours visuel
         startCountdownTimer();
     }
 
-    /**
-     * Arrête le script et nettoie les intervalles.
-     * @param {string} reason - Le message à afficher dans la barre de statut.
-     */
     function stop(reason = "🔴 Script arrêté.") {
         if (!running) return;
         running = false;
 
-        // Arrêter les deux intervalles
         clearInterval(clickIntervalId);
         clearInterval(countdownIntervalId);
         clickIntervalId = null;
@@ -120,22 +122,13 @@
 
     // --- Logique principale du script ---
 
-    /**
-     * Tente de trouver l'iframe et de cliquer sur le bouton "Create".
-     * Cette fonction est appelée immédiatement au démarrage, puis toutes les 30 secondes.
-     */
     function attemptClick() {
         if (!running) return;
 
-        // Réinitialiser le compte à rebours visuel à chaque tentative
         countdown = INTERVAL_SECONDS;
-
         const iframe = document.getElementById("sandbox-maui-preact-container");
 
-        const iframeReady = iframe &&
-                            iframe.contentWindow &&
-                            iframe.contentWindow.document &&
-                            iframe.contentWindow.document.readyState === "complete";
+        const iframeReady = iframe && iframe.contentWindow && iframe.contentWindow.document && iframe.contentWindow.document.readyState === "complete";
 
         if (!iframeReady) {
             updateStatus(`⏳ Iframe introuvable ou pas encore prête. Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#f39c12");
@@ -147,7 +140,6 @@
             const createBtn = doc.querySelector('[aria-label="Create"]');
 
             if (createBtn) {
-                // Vérifier si le bouton est visible et cliquable pour éviter les erreurs
                 if (createBtn.offsetParent !== null && !createBtn.disabled) {
                     createBtn.click();
                     updateStatus(`✅ Bouton 'Create' cliqué ! Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#27ae60");
@@ -155,21 +147,15 @@
                     updateStatus(`⚠️ Bouton trouvé mais non visible/cliquable. Prochaine tentative dans ${INTERVAL_SECONDS}s.`, "#e67e22");
                 }
             } else {
-                // **MODIFICATION CLÉ : Si le bouton n'est pas trouvé, on arrête tout.**
                 stop("🔴 Bouton 'Create' non trouvé. Le script est arrêté.");
             }
         } catch (err) {
-            // Gérer les erreurs de sécurité cross-origin qui peuvent survenir
             stop(`❌ Erreur d'accès à l'iframe: ${err.message}. Le script est arrêté.`);
             console.error("[AutoCreate] 💥 Erreur :", err);
         }
     }
 
-    /**
-     * Gère le compte à rebours visuel mis à jour chaque seconde.
-     */
     function startCountdownTimer() {
-        // S'assurer qu'un seul minuteur de compte à rebours tourne à la fois
         if (countdownIntervalId) {
             clearInterval(countdownIntervalId);
         }
@@ -179,8 +165,7 @@
                 clearInterval(countdownIntervalId);
                 return;
             }
-            
-            // Mettre à jour le texte du statut avec le compte à rebours
+
             if (statusText.textContent.includes("Prochaine tentative")) {
                  const baseMessage = statusText.textContent.split(" Prochaine tentative")[0];
                  statusText.textContent = `${baseMessage} Prochaine tentative dans ${countdown}s.`;
@@ -192,7 +177,6 @@
         }, 1000);
     }
 
-    // Initialiser le statut au chargement de la page
     updateStatus("🔲 En attente de démarrage.");
 
 })();
