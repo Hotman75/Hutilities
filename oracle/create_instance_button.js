@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Oracle Auto-Click Create
+// @name         Oracle Auto-Click Create (Arrêt automatique)
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Clique sur "Create" toutes les 30s. S'arrête si le bouton n'est pas trouvé. Avec Start/Stop et compte à rebours.
