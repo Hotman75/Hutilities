@@ -16,10 +16,7 @@
 (function () {
     'use strict';
 
-    // Main function that initializes the script's UI and logic
     function initializeScript() {
-        // Ensure the script runs only in the main window
-        // and that only one instance of the status bar is created.
         if (window.top !== window.self || document.getElementById('autoCreateStatusBar')) {
             return;
         }
@@ -135,14 +132,21 @@
 
             try {
                 const doc = iframe.contentWindow.document;
-                const createBtn = doc.querySelector('[aria-label="Create"]');
 
+                const continueBtn = doc.querySelector('[aria-label="Continue working"]');
+                if (continueBtn && continueBtn.offsetParent !== null && !continueBtn.disabled) {
+                    continueBtn.click();
+                    updateStatus("🔄 Clicked 'Continue working' to keep session alive.", "#2980b9");
+                    return;
+                }
+
+                const createBtn = doc.querySelector('[aria-label="Create"]');
                 if (createBtn) {
                     if (createBtn.offsetParent !== null && !createBtn.disabled) {
                         createBtn.click();
                         updateStatus(`✅ 'Create' button clicked! Next attempt in ${INTERVAL_SECONDS}s.`, "#27ae60");
                     } else {
-                        updateStatus(`⚠️ Button found but not visible/clickable. Next attempt in ${INTERVAL_SECONDS}s.`, "#e67e22");
+                        updateStatus(`⚠️ 'Create' button found but not clickable. Waiting...`, "#e67e22");
                     }
                 } else {
                     stop("🔴 'Create' button not found. Script stopped.");
@@ -154,9 +158,7 @@
         }
 
         function startCountdownTimer() {
-            if (countdownIntervalId) {
-                clearInterval(countdownIntervalId);
-            }
+            if (countdownIntervalId) clearInterval(countdownIntervalId);
 
             countdownIntervalId = setInterval(() => {
                 if (!running) {
@@ -169,9 +171,7 @@
                     statusText.textContent = `${baseMessage} Next attempt in ${countdown}s.`;
                 }
 
-                if (countdown > 0) {
-                    countdown--;
-                }
+                if (countdown > 0) countdown--;
             }, 1000);
         }
 
@@ -185,5 +185,4 @@
             initializeScript(); 
         }
     }, 500);
-
 })();
