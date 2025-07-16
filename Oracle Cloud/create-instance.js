@@ -16,7 +16,7 @@
 (function () {
     'use strict';
 
-    // --- Main function that initializes the script's UI and logic ---
+    // Main function that initializes the script's UI and logic
     function initializeScript() {
         // Ensure the script runs only in the main window
         // and that only one instance of the status bar is created.
@@ -126,7 +126,6 @@
             countdown = INTERVAL_SECONDS;
             const iframe = document.getElementById("sandbox-maui-preact-container");
 
-            // This check is now more robust within the click loop
             const iframeReady = iframe && iframe.contentWindow && iframe.contentWindow.document && iframe.contentWindow.document.readyState === "complete";
 
             if (!iframeReady) {
@@ -179,14 +178,12 @@
         updateStatus("🔲 Waiting to start.");
     }
 
-    // --- Polling mechanism to wait for the page to be ready ---
     const checkInterval = setInterval(() => {
-        // We wait for the specific iframe the script needs
         const iframe = document.getElementById("sandbox-maui-preact-container");
         if (iframe) {
-            clearInterval(checkInterval); // Stop polling
-            initializeScript();        // Run the main script logic
+            clearInterval(checkInterval);
+            initializeScript(); 
         }
-    }, 500); // Check every 500ms
+    }, 500);
 
 })();
