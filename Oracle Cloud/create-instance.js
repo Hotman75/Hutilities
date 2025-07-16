@@ -17,9 +17,7 @@
     'use strict';
 
     function initializeScript() {
-        if (window.top !== window.self || document.getElementById('autoCreateStatusBar')) {
-            return;
-        }
+        if (window.top !== window.self || document.getElementById('Auto-ClickStatusBar')) return;
 
         const INTERVAL_SECONDS = 30;
         let running = false;
@@ -29,11 +27,11 @@
 
         const style = document.createElement('style');
         style.textContent = `
-            #autoCreateStatusBar button {
+            #Auto-ClickStatusBar button {
                 cursor: pointer;
                 transition: opacity 0.2s ease-in-out;
             }
-            #autoCreateStatusBar button:disabled {
+            #Auto-ClickStatusBar button:disabled {
                 opacity: 0.5;
                 cursor: not-allowed;
             }
@@ -41,7 +39,7 @@
         document.head.appendChild(style);
 
         const statusBar = document.createElement("div");
-        statusBar.id = 'autoCreateStatusBar';
+        statusBar.id = 'Auto-ClickStatusBar';
         statusBar.setAttribute("style", `
             z-index: 999999999;
             position: fixed;
@@ -87,7 +85,7 @@
         function updateStatus(text, color = "#333") {
             statusBar.style.backgroundColor = color;
             statusText.textContent = text;
-            console.log(`[AutoCreate] ${new Date().toLocaleTimeString()} - ${text}`);
+            console.log(`[Auto-Click] ${new Date().toLocaleTimeString()} - ${text}`);
         }
 
         function start() {
@@ -121,39 +119,42 @@
             if (!running) return;
 
             countdown = INTERVAL_SECONDS;
-            const iframe = document.getElementById("sandbox-maui-preact-container");
+            let clicked = false;
 
-            const iframeReady = iframe && iframe.contentWindow && iframe.contentWindow.document && iframe.contentWindow.document.readyState === "complete";
+            const iframes = Array.from(document.getElementsByTagName("iframe"));
+            for (const iframe of iframes) {
+                try {
+                    const doc = iframe.contentWindow?.document;
+                    if (!doc || doc.readyState !== "complete") continue;
 
-            if (!iframeReady) {
-                updateStatus(`⏳ Iframe not found or not ready. Retrying in ${INTERVAL_SECONDS}s.`, "#f39c12");
-                return;
+                    // Try clicking 'Continue working' if found
+                    const continueBtn = doc.querySelector('[aria-label="Continue working"]');
+                    if (continueBtn && continueBtn.offsetParent !== null && !continueBtn.disabled) {
+                        continueBtn.click();
+                        updateStatus("🔄 Clicked 'Continue working' to keep session alive.", "#2980b9");
+                        clicked = true;
+                    }
+
+                    // Try clicking 'Create' if found
+                    const createBtn = doc.querySelector('[aria-label="Create"]');
+                    if (createBtn) {
+                        if (createBtn.offsetParent !== null && !createBtn.disabled) {
+                            createBtn.click();
+                            updateStatus(`✅ 'Create' button clicked! Next attempt in ${INTERVAL_SECONDS}s.`, "#27ae60");
+                            clicked = true;
+                            break;
+                        } else {
+                            updateStatus(`⚠️ 'Create' found but not clickable. Waiting...`, "#e67e22");
+                        }
+                    }
+
+                } catch (err) {
+                    console.warn("[Auto-Click] ⚠️ Error accessing iframe:", err.message);
+                }
             }
 
-            try {
-                const doc = iframe.contentWindow.document;
-
-                const continueBtn = doc.querySelector('[aria-label="Continue working"]');
-                if (continueBtn && continueBtn.offsetParent !== null && !continueBtn.disabled) {
-                    continueBtn.click();
-                    updateStatus("🔄 Clicked 'Continue working' to keep session alive.", "#2980b9");
-                    return;
-                }
-
-                const createBtn = doc.querySelector('[aria-label="Create"]');
-                if (createBtn) {
-                    if (createBtn.offsetParent !== null && !createBtn.disabled) {
-                        createBtn.click();
-                        updateStatus(`✅ 'Create' button clicked! Next attempt in ${INTERVAL_SECONDS}s.`, "#27ae60");
-                    } else {
-                        updateStatus(`⚠️ 'Create' button found but not clickable. Waiting...`, "#e67e22");
-                    }
-                } else {
-                    stop("🔴 'Create' button not found. Script stopped.");
-                }
-            } catch (err) {
-                stop(`❌ Error accessing iframe: ${err.message}. Script stopped.`);
-                console.error("[AutoCreate] 💥 Error:", err);
+            if (!clicked) {
+                updateStatus("⏳ No action performed. Retrying...", "#95a5a6");
             }
         }
 
@@ -161,14 +162,11 @@
             if (countdownIntervalId) clearInterval(countdownIntervalId);
 
             countdownIntervalId = setInterval(() => {
-                if (!running) {
-                    clearInterval(countdownIntervalId);
-                    return;
-                }
+                if (!running) return clearInterval(countdownIntervalId);
 
                 if (statusText.textContent.includes("Next attempt")) {
-                    const baseMessage = statusText.textContent.split(" Next attempt")[0];
-                    statusText.textContent = `${baseMessage} Next attempt in ${countdown}s.`;
+                    const base = statusText.textContent.split(" Next attempt")[0];
+                    statusText.textContent = `${base} Next attempt in ${countdown}s.`;
                 }
 
                 if (countdown > 0) countdown--;
@@ -179,10 +177,9 @@
     }
 
     const checkInterval = setInterval(() => {
-        const iframe = document.getElementById("sandbox-maui-preact-container");
-        if (iframe) {
+        if (document.getElementsByTagName("iframe").length > 0) {
             clearInterval(checkInterval);
-            initializeScript(); 
+            initializeScript();
         }
     }, 500);
 })();
