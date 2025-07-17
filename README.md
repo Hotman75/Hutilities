@@ -3,6 +3,16 @@
 This repository contains various Tampermonkey utility scripts, developed and tested primarily with **Firefox**.  
 These scripts help automate and enhance your experience on specific web platforms.
 
+---
+
+## 📚 Table of Contents
+
+- [🔧 Recommended Browser Setup](#recommended-browser-setup)
+- [📦 How to Install a Script](#how-to-install-a-script)
+- [🖱️ Oracle Cloud Create Instance Auto-Click](#oracle-cloud-create-instance-auto-click)
+
+---
+
 ## 🔧 Recommended Browser Setup
 
 - **Firefox**  
@@ -23,13 +33,7 @@ These scripts help automate and enhance your experience on specific web platform
 
 ---
 
-## 📚 Table of Contents
-
-- [Oracle Cloud Create Instance Auto-Click](#oracle-cloud-create-instance-auto-click)
-
----
-
-## 🚀 Oracle Cloud Create Instance Auto-Click
+## 🖱️ Oracle Cloud Create Instance Auto-Click
 
 Automatically clicks the **“Create”** button on the Oracle Cloud instance creation page every 30 seconds.  
 Useful for reserving a Free Tier server when resources are limited or contention is high.
