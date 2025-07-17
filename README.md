@@ -9,7 +9,7 @@ These scripts help automate and enhance your experience on specific web platform
 
 - [🔧 Recommended Browser Setup](#-recommended-browser-setup)
 - [📦 How to Install a Script](#-how-to-install-a-script)
-- [🖱️ Oracle Cloud Create Instance Auto-Click](#-oracle-cloud-create-instance-auto-click)
+- [🖱️ Oracle Cloud Create Instance Auto-Click](#%EF%B8%8F-oracle-cloud-create-instance-auto-click)
 
 ---
 
