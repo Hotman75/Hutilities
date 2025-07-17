@@ -59,20 +59,95 @@ This script:
 - Complete all required parameters until the **"Create"** button is visible (last step).
 - Oracle forces a regular reconnection, so it's impossible to automate the click for longer than the authorized session time.
 
-### 🧭 Guide to get a Always Free Server
+### 🧭 Guide to Get an Always Free Server
 
 #### 1. 📝 Prerequisites
-- Create an Oracle Cloud account : https://cloud.oracle.com/
-- Enter a credit card (no direct debit if you stay within Always Free quotas).
 
-  #### 2. 🌐 Configure a Virtual Cloud Network
-- Go to the **"Virtual clourd networks"** Menu, available in the **"Networking"** tab
-<img width="1106" height="681" alt="image" src="https://github.com/user-attachments/assets/057fbd90-b3e0-41b3-a05f-a5e89cf7729b" />
-- Create a VCN :
-> Set a custom name
-> IPv4 CIDR Blocks : 10.0.0.0/16
-- Once created, in your VCN page, go to the **"Subnets"** tab and Create a Subnet :
-> Set a custom name
-> IPv4 CIDR Block : 10.0.0.0/24
-> Select the **"Default Security List for VCN"**
-> Let the default other options
+- Create an Oracle Cloud account: [https://cloud.oracle.com/](https://cloud.oracle.com/)
+- Provide a credit card (you won’t be charged as long as you stay within the Always Free quotas).
+
+---
+
+#### 2. 🌐 Configure a Virtual Cloud Network (VCN)
+
+1. Go to **"Virtual Cloud Networks"** under the **"Networking"** tab.  
+   
+  ![Screenshot](https://github.com/user-attachments/assets/057fbd90-b3e0-41b3-a05f-a5e89cf7729b)
+
+2. **Create a VCN**  
+   - Name it as you like  
+   - Set **IPv4 CIDR Block** to: `10.0.0.0/16`
+
+3. Once created, go to the **"Subnets"** tab and click **"Create Subnet"**:  
+   - Set a custom name  
+   - Set **IPv4 CIDR Block** to: `10.0.0.0/24`  
+   - Select the **"Default Security List for [VCN name]"**  
+   - Leave other options as default
+
+4. In the **"Gateways"** tab:  
+   - Create an **Internet Gateway**
+
+5. In the **"Routing"** tab:  
+   - Select **"Default Route Table for [VCN]"**  
+   - Go to the **"Route Rules"** tab → **Add Route Rule**:  
+     - **Target Type**: Internet Gateway  
+     - **Destination CIDR Block**: `0.0.0.0/0`  
+     - **Target**: Select the Internet Gateway created earlier
+
+6. In the **"Security"** tab:  
+   - Select **"Default Security List for [VCN]"**  
+   - Go to **"Security Rules"** → **Add Ingress Rules**:  
+     - **Source CIDR**: `0.0.0.0/0`  
+     - **Source Port Range**: All  
+     - **Destination Port Range**: Add needed rules, such as (one rule per port):  
+       - TCP 22 → SSH  
+       - TCP 80 → HTTP  
+       - TCP 443 → HTTPS  
+       - TCP 25565 → Minecraft (optional)
+       - (any other port needed)
+
+> ℹ️ For any unspecified options, you can safely leave the default values.
+
+---
+
+#### 3. ⚙️ Configure the Instance
+
+1. Go to the **"Instances"** menu in the **"Compute"** tab.  
+   
+  ![Screenshot](https://github.com/user-attachments/assets/6a131817-7bfb-4d7d-8ed8-b3748cf339d4)
+
+2. Click **"Create Instance"**:
+   - Choose a custom name
+   - Select an OS Image: latest **Oracle Linux** or **Canonical Ubuntu**
+
+3. **Change the Shape**:
+   - Choose **Ampere → VM.Standard.A1.Flex**  
+   - Adjust CPU and RAM (e.g., 1 OCPU, 6 GB RAM for Always Free)  
+   ![Screenshot](https://github.com/user-attachments/assets/72af5ff1-ae85-46aa-821f-39a6a7abc141)
+
+4. In the **Network** section:
+   - Select the **VCN** and **Subnet** created earlier
+   - Ensure **"Automatically assign public IPv4 address"** is **checked**
+   - Generate SSH keys (if needed):
+     > ⚠️ Download Private and Public Keys
+
+5. You can leave the **Boot volume** (Storage) as default, or define a custom size (up to 200Go for the Free Plan).
+
+---
+
+#### 4. 🖱️ Launching the Auto-Click Script
+
+- After completing the configuration, you should see the **“Create”** button at the bottom of the page.
+- The **Tampermonkey Auto-Click script** will display a status bar in the top-left corner.
+- Click the **"Start"** button in the status bar — it will:
+  - Click the **"Create"** button every 30 seconds
+  - Prevent session timeouts by clicking **“Continue working”** when prompted
+  - Stop automatically once the instance is created
+
+> ⏳ Note: It can take hours — even days — to successfully create an Always Free instance, depending on availability. Be patient.
+
+💡 **Oracle may disconnect you** after a long active session. Be sure to check in regularly and restart the creation process if needed.
+
+---
+
+🎉 Good luck! With this setup and script, you're ready to grab your Always Free server automatically.
