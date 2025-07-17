@@ -1,22 +1,58 @@
-# 🗒️ Tampermonkey
+# 🛠️ Tampermonkey Scripts Collection
 
-Directories of my Tampermonkey utility scripts.
-They are made with Firefox, this is the browser I recommend to use (with uBlock Origin).
+This repository contains various Tampermonkey utility scripts, developed and tested primarily with **Firefox**.  
+These scripts help automate and enhance your experience on specific web platforms.
 
-### Firefox
-https://addons.mozilla.org/fr/firefox/addon/tampermonkey/
-https://addons.mozilla.org/fr/firefox/addon/ublock-origin/
+## 🔧 Recommended Browser Setup
 
-### Chrome
-https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+- **Firefox**  
+  - Tampermonkey: [Install on Firefox](https://addons.mozilla.org/fr/firefox/addon/tampermonkey/)  
+  - uBlock Origin (recommended for ad/tracker blocking): [Install on Firefox](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/)
 
-To install a script, open the Tampermonkey Dashboard, go to 'Utilities' tab, paste the script URL in the 'Import from URL' field, and click on 'Install'
+- **Google Chrome / Chromium-based browsers**  
+  - Tampermonkey: [Install on Chrome](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 
 ---
 
-## 👆 Oracle Cloud Create Instance Auto-Click :
+## 📦 How to Install a Script
 
-Enables you to force the creation of an Oracle Cloud Always Free server by clicking on Create every 30s until the server is created.
+1. Open your Tampermonkey Dashboard.  
+2. Go to the **"Utilities"** tab.  
+3. Paste the script URL in the **"Import from URL"** field.  
+4. Click **"Install"**.
 
-### URL
-https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js
+---
+
+## 📚 Table of Contents
+
+- [Oracle Cloud Create Instance Auto-Click](#oracle-cloud-create-instance-auto-click)
+
+---
+
+## 🚀 Oracle Cloud Create Instance Auto-Click
+
+Automatically clicks the **“Create”** button on the Oracle Cloud instance creation page every 30 seconds.  
+Useful for reserving a Free Tier server when resources are limited or contention is high.
+
+### 🔗 Script URL
+
+> Paste this in Tampermonkey’s *“Import from URL”* field:  
+> [https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js](https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js)
+
+### 📄 Description
+
+This script:
+
+- Displays a status bar with Start/Stop buttons to activate/deactivate the automation.
+- Once started, clicks the **"Create"** button every **30 seconds**.
+- Prevents disconnect by clicking **"Continue working"** when displayed.
+- Stops once the instance is created.
+
+### 🖥️ Requirements
+
+- First, select the various parameters of the instance, until you see the **"Create "** button.
+- Oracle forces a regular reconnection, so it's impossible to automate the click for longer than the authorized session time.
+
+### Guide
+
+TO DO
