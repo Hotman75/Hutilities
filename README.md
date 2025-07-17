@@ -1,6 +1,6 @@
 # 🛠️ Tampermonkey Scripts Collection
 
-This repository contains various Tampermonkey utility scripts, developed and tested primarily with **Firefox**.  
+This repository contains various Tampermonkey utility scripts, developed and tested primarily with **Firefox**, they may not work in **Chrome**.  
 These scripts help automate and enhance your experience on specific web platforms.
 
 ---
@@ -54,9 +54,25 @@ This script:
 
 ### 🖥️ Requirements
 
-- First, select the various parameters of the instance, until you see the **"Create "** button.
+- Navigate to:  
+  `https://cloud.oracle.com/compute/instances/create?...`
+- Complete all required parameters until the **"Create"** button is visible (last step).
 - Oracle forces a regular reconnection, so it's impossible to automate the click for longer than the authorized session time.
 
-### Guide
+### 🧭 Guide to get a Always Free Server
 
-TO DO
+#### 1. 📝 Prerequisites
+- Create an Oracle Cloud account : https://cloud.oracle.com/
+- Enter a credit card (no direct debit if you stay within Always Free quotas).
+
+  #### 2. 🌐 Configure a Virtual Cloud Network
+- Go to the **"Virtual clourd networks"** Menu, available in the **"Networking"** tab
+<img width="1106" height="681" alt="image" src="https://github.com/user-attachments/assets/057fbd90-b3e0-41b3-a05f-a5e89cf7729b" />
+- Create a VCN :
+> Set a custom name
+> IPv4 CIDR Blocks : 10.0.0.0/16
+- Once created, in your VCN page, go to the **"Subnets"** tab and Create a Subnet :
+> Set a custom name
+> IPv4 CIDR Block : 10.0.0.0/24
+> Select the **"Default Security List for VCN"**
+> Let the default other options
