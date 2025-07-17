@@ -7,9 +7,9 @@ These scripts help automate and enhance your experience on specific web platform
 
 ## 📚 Table of Contents
 
-- [🔧 Recommended Browser Setup](#recommended-browser-setup)
-- [📦 How to Install a Script](#how-to-install-a-script)
-- [🖱️ Oracle Cloud Create Instance Auto-Click](#oracle-cloud-create-instance-auto-click)
+- [🔧 Recommended Browser Setup](#https://github.com/Hotman75/Tampermonkey/blob/main/README.md#-recommended-browser-setup)
+- [📦 How to Install a Script](#https://github.com/Hotman75/Tampermonkey/blob/main/README.md#-how-to-install-a-script)
+- [🖱️ Oracle Cloud Create Instance Auto-Click](#https://github.com/Hotman75/Tampermonkey/blob/main/README.md#%EF%B8%8F-oracle-cloud-create-instance-auto-click)
 
 ---
 
