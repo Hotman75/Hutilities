@@ -129,7 +129,7 @@ This script:
    - Select the **VCN** and **Subnet** created earlier
    - Ensure **"Automatically assign public IPv4 address"** is **checked**
    - Generate SSH keys (if needed):
-     > ⚠️ Download Private and Public Keys
+     >⚠️ Download Private and Public Keys
 
 5. You can leave the **Boot volume** (Storage) as default, or define a custom size (up to 200Go for the Free Plan).
 
