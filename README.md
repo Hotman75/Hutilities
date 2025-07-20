@@ -150,4 +150,11 @@ This script:
 
 ---
 
+#### 5. ⏱️ Don't want to wait ?
+
+If the need is urgent or the wait too long, you can upgrade your Always Free account to a Pay As You Go account.
+You'll be charged ~$100 (refunded immediately), but you'll be able to create an instance almost instantly.
+If you choose this solution, be careful not to exceed the Always Free ceiling (4 OCPU, 24 Gb RAM, 2 Public IPs, ...).
+You can set up invoice alerts to ensure you never exceed quotas.
+
 🎉 Good luck! With this setup and script, you're ready to grab your Always Free server automatically.
