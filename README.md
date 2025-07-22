@@ -8,6 +8,8 @@ I'm sharing here a list of free (or almost free) tools that I use regularly and 
 
 - [🔧 Recommended Browser Setup](#-recommended-browser-setup)
 - [🪟 Windows](#-windows)
+  - [Activate Windows/Office](#-activate-windows-office)
+  - [PowerToys](#-powertoys)
 - [↔️ DNS](#️-dns)
 - [📱 Smartphone](#-smartphone)
   - [▶️ YouTube ReVanced](#%EF%B8%8F-youtube-revanced)
@@ -22,7 +24,7 @@ I strongly recommend using **Firefox**, along with these extensions:
 
 | Extension | Description |
 |----------|-------------|
-| [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin/) | Blocks ads and trackers |
+| [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin/) (mandatory) | Blocks ads and trackers |
 | [Tampermonkey](https://addons.mozilla.org/firefox/addon/tampermonkey/) | Userscript manager |
 | [I Still Don't Care About Cookies](https://addons.mozilla.org/firefox/addon/istilldontcareaboutcookies/) | Automatically rejects cookie banners |
 | [FastForward](https://addons.mozilla.org/firefox/addon/fastforwardteam/) | Bypasses URL shorteners |
@@ -30,19 +32,19 @@ I strongly recommend using **Firefox**, along with these extensions:
 | [Firefox Multi-Account Containers](https://addons.mozilla.org/firefox/addon/multi-account-containers/) | Isolate tabs between work/personal accounts |
 | [SponsorBlock](https://addons.mozilla.org/firefox/addon/sponsorblock/) | Skips sponsor segments on YouTube |
 | [Alternate Player for Twitch.tv](https://addons.mozilla.org/firefox/addon/twitch_5/) | Skips Twitch ads |
-| [BetterTTV](https://addons.mozilla.org/firefox/addon/betterttv/) | Enhances Twitch and YouTube with chat emotes and features |
+| [BetterTTV](https://addons.mozilla.org/firefox/addon/betterttv/) | Enhances Twitch and YouTube |
 | [Dark Reader](https://addons.mozilla.org/firefox/addon/darkreader/) | Enables dark mode on all websites |
 
 ---
 
 ## 🪟 Windows
 
-- **Activate Windows/Office**  
+### 🔑 Activate Windows/Office  
   You can **very** easily activate Windows and the Office Suite by opening a PowerShell and entering this command:  
   `irm https://get.activated.win/ | iex`
   > Select HWID for Windows, and Ohook for Office
 
-- **PowerToys**  
+### 🧩 PowerToys  
   A set of utilities to improve productivity and system management.  
   👉 [Install PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/install)
 
