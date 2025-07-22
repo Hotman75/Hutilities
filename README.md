@@ -9,6 +9,8 @@ A curated collection of free, practical digital tools I use daily — and think 
 - [🔧 Recommended Browser Setup](#-recommended-browser-setup)
 - [🪟 Windows 11 Enhancements](#-windows-11-enhancements)
 - [↔️ DNS Recommendations](#️-dns-recommendations)
+- [📱 Smartphone](#-smartphone)
+  - [▶️ YouTube Premium Alternative (Free)](#%EF%B8%8F-youtube-premium-alternative-free)
 - [🎬 Home Cinema Setup](#-home-cinema-setup)
 - [☁️ Personal Cloud Server (Oracle Cloud)](#️-personal-cloud-server-oracle-cloud)
   - [📦 Install Tampermonkey Script](#-install-tampermonkey-script)
@@ -16,7 +18,7 @@ A curated collection of free, practical digital tools I use daily — and think 
     - [📝 Prerequisites](#-prerequisites)
     - [🌐 Configure the Virtual Cloud Network (VCN)](#-configure-the-virtual-cloud-network-vcn)
     - [⚙️ Create the Instance](#️-create-the-instance)
-    - [🖱️ Launch the Auto-Click Script](#-launch-the-auto-click-script)
+    - [🖱️ Launch the Auto-Click Script](#%EF%B8%8F-launch-the-auto-click-script)
     - [⏱️ In a Hurry?](#️-in-a-hurry)
 
 ---
@@ -54,6 +56,27 @@ To improve speed and privacy, change your DNS provider directly from your router
 
 - [**Quad9 (9.9.9.9)**](https://quad9.net/service/service-addresses-and-features/) — Privacy-focused and secure  
 - [**Cloudflare (1.1.1.1)**](https://developers.cloudflare.com/1.1.1.1/ip-addresses/) — Fast and privacy-first
+
+---
+
+## 📱 Smartphone
+
+**Android** offers the most flexibility and control — especially for power users.
+
+### ▶️ YouTube Premium Alternative (Free)
+
+You can enjoy an ad-free YouTube experience with background play and more — without paying for Premium — thanks to the **ReVanced** project.
+
+👉 [Install Guide – YouTube ReVanced (Reddit)](https://www.reddit.com/r/revancedapp/comments/159zbb6/guide_youtube_revanced/)
+
+**Features:**
+- Ad-free YouTube videos
+- Background playback
+- SponsorBlock integration
+- AMOLED-friendly dark theme
+- Full customization options
+
+> ⚠️ Requires sideloading the app (no Play Store). The guide covers all steps (including microG if needed).
 
 ---
 
