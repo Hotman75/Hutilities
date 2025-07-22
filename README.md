@@ -86,7 +86,7 @@ For streaming movies/TV shows, I recommend:
 
 ## ☁️ Personal Cloud Server
 
-Looking for a free cloud server for hosting website or gaming server? **Oracle Cloud** offers the best Always Free virtual machines. Below is a setup guide and an automation script to help you secure an instance.
+Looking for a free cloud server for hosting a website or a game server? **Oracle Cloud** offers the best Always Free virtual machines. Below is a setup guide and an automation script to help you secure an instance.
 
 👉 [Oracle Cloud Installation Guide](./Oracle%20Cloud/installation-guide.md)
 
