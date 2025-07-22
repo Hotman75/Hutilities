@@ -7,19 +7,12 @@ I'm sharing here a list of free (or almost free) tools that I use regularly and 
 ## 📚 Table of Contents
 
 - [🔧 Recommended Browser Setup](#-recommended-browser-setup)
-- [🪟 Windows](#-windows-11-enhancements)
-- [↔️ DNS](#️-dns-recommendations)
+- [🪟 Windows](#-windows)
+- [↔️ DNS](#️-dns)
 - [📱 Smartphone](#-smartphone)
   - [▶️ YouTube ReVanced](#%EF%B8%8F-youtube-revanced)
 - [🎬 Home Cinema Setup](#-home-cinema-setup)
-- [☁️ Personal Cloud Server (Oracle Cloud)](#️-personal-cloud-server-oracle-cloud)
-  - [📦 Install Tampermonkey Script](#-install-tampermonkey-script)
-  - [🧭 Guide to Get an Always Free Server](#-guide-to-get-an-always-free-server)
-    - [📝 Prerequisites](#-prerequisites)
-    - [🌐 Configure the Virtual Cloud Network (VCN)](#-configure-the-virtual-cloud-network-vcn)
-    - [⚙️ Create the Instance](#️-create-the-instance)
-    - [🖱️ Launch the Auto-Click Script](#%EF%B8%8F-launch-the-auto-click-script)
-    - [⏱️ In a Hurry?](#️-in-a-hurry)
+- [☁️ Personal Cloud Server](#️-personal-cloud-server)
 
 ---
 
@@ -89,9 +82,9 @@ For streaming movies/TV shows, I recommend:
 
 ---
 
-## ☁️ Personal Cloud Server (Oracle Cloud)
+## ☁️ Personal Cloud Server
 
-Looking for a free cloud server for hosting website or gaming server? Oracle Cloud offers Always Free virtual machines. Below is a setup guide and an automation script to help you secure an instance.
+Looking for a free cloud server for hosting website or gaming server? **Oracle Cloud** offers the best Always Free virtual machines. Below is a setup guide and an automation script to help you secure an instance.
 
 👉 [Oracle Cloud Installation Guide](./Oracle%20Cloud/installation-guide.md)
 
