@@ -15,6 +15,8 @@ I'm sharing here a list of free (or almost free) tools that I use regularly and 
   - [▶️ YouTube ReVanced](#%EF%B8%8F-youtube-revanced)
 - [🎬 Home Cinema Setup](#-home-cinema-setup)
 - [☁️ Personal Cloud Server](#️-personal-cloud-server)
+- [🧠 AI](#-ai)
+  - [🎭 FaceFusion](#-facefusion)
 
 ---
 
