@@ -1,4 +1,4 @@
-# 🛠️ Digital Useful Toolbox
+# 🛠️ Hutilities — Hotman's Digital Toolbox
 
 A curated collection of free, practical digital tools I use daily — and think you should too.
 
