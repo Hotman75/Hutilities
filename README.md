@@ -54,8 +54,8 @@ I strongly recommend using **Firefox**, along with these extensions:
 
 To improve speed and privacy, change your DNS provider directly from your router or system settings:
 
-- [**Quad9 (9.9.9.9)**](https://quad9.net/service/service-addresses-and-features/) — Privacy-focused and secure  
-- [**Cloudflare (1.1.1.1)**](https://developers.cloudflare.com/1.1.1.1/ip-addresses/) — Fast and privacy-first
+- [**Quad9 (9.9.9.9)**](https://quad9.net/service/service-addresses-and-features/) — Privacy-focused and secure (Recommended primary)
+- [**Cloudflare (1.1.1.1)**](https://developers.cloudflare.com/1.1.1.1/ip-addresses/) — Fast and privacy-first (Recommended secondary)
 
 ---
 
@@ -65,18 +65,9 @@ To improve speed and privacy, change your DNS provider directly from your router
 
 ### ▶️ YouTube Premium Alternative (Free)
 
-You can enjoy an ad-free YouTube experience with background play and more — without paying for Premium — thanks to the **ReVanced** project.
+You can enjoy the Premium YouTube experience for free, thanks to the **ReVanced** project.
 
 👉 [Install Guide – YouTube ReVanced (Reddit)](https://www.reddit.com/r/revancedapp/comments/159zbb6/guide_youtube_revanced/)
-
-**Features:**
-- Ad-free YouTube videos
-- Background playback
-- SponsorBlock integration
-- AMOLED-friendly dark theme
-- Full customization options
-
-> ⚠️ Requires sideloading the app (no Play Store). The guide covers all steps (including microG if needed).
 
 ---
 
