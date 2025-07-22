@@ -1,16 +1,16 @@
 # 🛠️ Hutilities — Hotman's Digital Toolbox
 
-A curated collection of free, practical digital tools I use daily — and think you should too.
+I'm sharing here a list of free (or almost free) tools that I use regularly and thought might be useful to everyone.
 
 ---
 
 ## 📚 Table of Contents
 
 - [🔧 Recommended Browser Setup](#-recommended-browser-setup)
-- [🪟 Windows 11 Enhancements](#-windows-11-enhancements)
-- [↔️ DNS Recommendations](#️-dns-recommendations)
+- [🪟 Windows](#-windows-11-enhancements)
+- [↔️ DNS](#️-dns-recommendations)
 - [📱 Smartphone](#-smartphone)
-  - [▶️ YouTube Premium Alternative (Free)](#%EF%B8%8F-youtube-premium-alternative-free)
+  - [▶️ YouTube ReVanced](#%EF%B8%8F-youtube-revanced)
 - [🎬 Home Cinema Setup](#-home-cinema-setup)
 - [☁️ Personal Cloud Server (Oracle Cloud)](#️-personal-cloud-server-oracle-cloud)
   - [📦 Install Tampermonkey Script](#-install-tampermonkey-script)
@@ -42,7 +42,12 @@ I strongly recommend using **Firefox**, along with these extensions:
 
 ---
 
-## 🪟 Windows 11 Enhancements
+## 🪟 Windows
+
+- **Activate Windows/Office**  
+  You can **very** easily activate Windows and the Office Suite by opening a PowerShell and entering this command:  
+  `irm https://get.activated.win/ | iex`
+  > Select HWID for Windows, and Ohook for Office
 
 - **PowerToys**  
   A set of utilities to improve productivity and system management.  
@@ -50,7 +55,7 @@ I strongly recommend using **Firefox**, along with these extensions:
 
 ---
 
-## ↔️ DNS Recommendations
+## ↔️ DNS
 
 To improve speed and privacy, change your DNS provider directly from your router or system settings:
 
@@ -63,11 +68,13 @@ To improve speed and privacy, change your DNS provider directly from your router
 
 **Android** offers the most flexibility and control — especially for power users.
 
-### ▶️ YouTube Premium Alternative (Free)
+### ▶️ YouTube ReVanced
 
 You can enjoy the Premium YouTube experience for free, thanks to the **ReVanced** project.
 
 👉 [Install Guide – YouTube ReVanced (Reddit)](https://www.reddit.com/r/revancedapp/comments/159zbb6/guide_youtube_revanced/)
+
+You can use ReVanced to patch other applications, but be careful with Spotify, as some users have reported that their accounts have been banned.
 
 ---
 
@@ -76,7 +83,7 @@ You can enjoy the Premium YouTube experience for free, thanks to the **ReVanced*
 For streaming movies/TV shows, I recommend:
 
 - **Stremio** + **Torrentio**  
-- Combine them with a premium **debrid service** (>30€/year) for safety and quality
+- Combine them with a premium **debrid service** (~35$/year) for safety and quality
 
 📖 Full setup guide: [https://guides.viren070.me/stremio](https://guides.viren070.me/stremio)
 
