@@ -8,7 +8,7 @@ I'm sharing here a list of free (or almost free) tools that I use regularly and 
 
 - [🔧 Recommended Browser Setup](#-recommended-browser-setup)
 - [🪟 Windows](#-windows)
-  - [🔓 Activate Windows/Office](#-activate-windows/office)
+  - [🔓 Activate Windows/Office](#-activate-windowsoffice)
   - [🧩 PowerToys](#-powertoys)
 - [↔️ DNS](#️-dns)
 - [📱 Smartphone](#-smartphone)
