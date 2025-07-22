@@ -67,7 +67,7 @@ To improve speed and privacy, change your DNS provider directly from your router
 
 You can enjoy the Premium YouTube experience for free, thanks to the **ReVanced** project.
 
-👉 [Install Guide – YouTube ReVanced (Reddit)](https://www.reddit.com/r/revancedapp/comments/159zbb6/guide_youtube_revanced/)
+👉 [Install Guide](https://www.reddit.com/r/revancedapp/comments/159zbb6/guide_youtube_revanced/)
 
 You can use ReVanced to patch other applications, but be careful with Spotify, as some users have reported that their accounts have been banned.
 
