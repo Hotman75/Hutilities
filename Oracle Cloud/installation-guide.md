@@ -4,6 +4,16 @@
 
 - Create a free account at [https://cloud.oracle.com/](https://cloud.oracle.com/)
 - A credit card is required (but won’t be charged if you stay within free tier limits)
+  
+### 📦 Install Tampermonkey Script
+
+To install the automation script:
+
+1. Open your **Tampermonkey Dashboard**
+2. Go to the **Utilities** tab
+3. Paste this URL in **"Import from URL"**:  
+   [https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js](https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js)
+4. Click **Install**
 
 ---
 
