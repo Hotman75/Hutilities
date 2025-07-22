@@ -91,3 +91,11 @@ Looking for a free cloud server for hosting a website or a game server? **Oracle
 👉 [Oracle Cloud Installation Guide](./Oracle%20Cloud/installation-guide.md)
 
 ---
+
+## 🧠 AI
+
+### 🎭 FaceFusion
+
+An excellent Open Source tool for face swapping.
+
+👉 [FaceFusion](https://docs.facefusion.io/)
