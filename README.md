@@ -1,160 +1,180 @@
-# 🛠️ Tampermonkey Scripts Collection
+# 🛠️ Digital Useful Toolbox
 
-This repository contains various Tampermonkey utility scripts, developed and tested primarily with **Firefox**, they may not work in **Chrome**.  
-These scripts help automate and enhance your experience on specific web platforms.
+A curated collection of free, practical digital tools I use daily — and think you should too.
 
 ---
 
 ## 📚 Table of Contents
 
 - [🔧 Recommended Browser Setup](#-recommended-browser-setup)
-- [📦 How to Install a Script](#-how-to-install-a-script)
-- [🖱️ Oracle Cloud Create Instance Auto-Click](#%EF%B8%8F-oracle-cloud-create-instance-auto-click)
+- [🪟 Windows 11 Enhancements](#-windows-11-enhancements)
+- [↔️ DNS Recommendations](#️-dns-recommendations)
+- [🎬 Home Cinema Setup](#-home-cinema-setup)
+- [☁️ Personal Cloud Server (Oracle Cloud)](#️-personal-cloud-server-oracle-cloud)
+  - [📦 Install Tampermonkey Script](#-install-tampermonkey-script)
+  - [🧭 Guide to Get an Always Free Server](#-guide-to-get-an-always-free-server)
+    - [📝 Prerequisites](#-prerequisites)
+    - [🌐 Configure the Virtual Cloud Network (VCN)](#-configure-the-virtual-cloud-network-vcn)
+    - [⚙️ Create the Instance](#️-create-the-instance)
+    - [🖱️ Launch the Auto-Click Script](#-launch-the-auto-click-script)
+    - [⏱️ In a Hurry?](#️-in-a-hurry)
 
 ---
 
 ## 🔧 Recommended Browser Setup
 
-- **Firefox**  
-  - Tampermonkey: [Install on Firefox](https://addons.mozilla.org/fr/firefox/addon/tampermonkey/)  
-  - uBlock Origin (recommended for ad/tracker blocking): [Install on Firefox](https://addons.mozilla.org/fr/firefox/addon/ublock-origin/)
+I strongly recommend using **Firefox**, along with these extensions:
 
-- **Google Chrome / Chromium-based browsers**  
-  - Tampermonkey: [Install on Chrome](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+| Extension | Description |
+|----------|-------------|
+| [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin/) | Blocks ads and trackers |
+| [Tampermonkey](https://addons.mozilla.org/firefox/addon/tampermonkey/) | Userscript manager |
+| [I Still Don't Care About Cookies](https://addons.mozilla.org/firefox/addon/istilldontcareaboutcookies/) | Automatically rejects cookie banners |
+| [FastForward](https://addons.mozilla.org/firefox/addon/fastforwardteam/) | Bypasses URL shorteners |
+| [Bypass Paywalls Clean](https://gitflic.ru/project/magnolia1234/bypass-paywalls-firefox-clean) | Bypasses paywalls on many news websites |
+| [Firefox Multi-Account Containers](https://addons.mozilla.org/firefox/addon/multi-account-containers/) | Isolate tabs between work/personal accounts |
+| [SponsorBlock](https://addons.mozilla.org/firefox/addon/sponsorblock/) | Skips sponsor segments on YouTube |
+| [Alternate Player for Twitch.tv](https://addons.mozilla.org/firefox/addon/twitch_5/) | Skips Twitch ads |
+| [BetterTTV](https://addons.mozilla.org/firefox/addon/betterttv/) | Enhances Twitch and YouTube with chat emotes and features |
+| [Dark Reader](https://addons.mozilla.org/firefox/addon/darkreader/) | Enables dark mode on all websites |
 
 ---
 
-## 📦 How to Install a Script
+## 🪟 Windows 11 Enhancements
 
-1. Open your Tampermonkey Dashboard.  
-2. Go to the **"Utilities"** tab.  
-3. Paste the script URL in the **"Import from URL"** field.  
-4. Click **"Install"**.
+- **PowerToys**  
+  A set of utilities to improve productivity and system management.  
+  👉 [Install PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/install)
 
 ---
 
-## 🖱️ Oracle Cloud Create Instance Auto-Click
+## ↔️ DNS Recommendations
 
-Automatically clicks the **“Create”** button on the Oracle Cloud instance creation page every 30 seconds.  
-Useful for reserving a Free Tier server when resources are limited or contention is high.
+To improve speed and privacy, change your DNS provider directly from your router or system settings:
 
-### 🔗 Script URL
+- [**Quad9 (9.9.9.9)**](https://quad9.net/service/service-addresses-and-features/) — Privacy-focused and secure  
+- [**Cloudflare (1.1.1.1)**](https://developers.cloudflare.com/1.1.1.1/ip-addresses/) — Fast and privacy-first
 
-> Paste this in Tampermonkey’s *“Import from URL”* field:  
-> [https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js](https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js)
+---
 
-### 📄 Description
+## 🎬 Home Cinema Setup
 
-This script:
+For streaming movies/TV shows, I recommend:
 
-- Displays a status bar with Start/Stop buttons to activate/deactivate the automation.
-- Once started, clicks the **"Create"** button every **30 seconds**.
-- Prevents disconnect by clicking **"Continue working"** when displayed.
-- Stops once the instance is created.
+- **Stremio** + **Torrentio**  
+- Combine them with a premium **debrid service** (>30€/year) for safety and quality
 
-### 🖥️ Requirements
+📖 Full setup guide: [https://guides.viren070.me/stremio](https://guides.viren070.me/stremio)
 
-- Navigate to:  
-  `https://cloud.oracle.com/compute/instances/create?...`
-- Complete all required parameters until the **"Create"** button is visible (last step).
-- Oracle forces a regular reconnection, so it's impossible to automate the click for longer than the authorized session time.
+---
+
+## ☁️ Personal Cloud Server (Oracle Cloud)
+
+Looking for a free cloud server? Oracle Cloud offers Always Free virtual machines. Below is a setup guide and an automation script to help you secure an instance.
+
+---
+
+### 📦 Install Tampermonkey Script
+
+To install the automation script:
+
+1. Open your **Tampermonkey Dashboard**
+2. Go to the **Utilities** tab
+3. Paste this URL in **"Import from URL"**:  
+   [https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js](https://raw.githubusercontent.com/Hotman75/Tampermonkey/main/Oracle%20Cloud/create-instance.js)
+4. Click **Install**
+
+---
 
 ### 🧭 Guide to Get an Always Free Server
 
-#### 1. 📝 Prerequisites
+#### 📝 Prerequisites
 
-- Create an Oracle Cloud account: [https://cloud.oracle.com/](https://cloud.oracle.com/)
-- Provide a credit card (you won’t be charged as long as you stay within the Always Free quotas).
-
----
-
-#### 2. 🌐 Configure a Virtual Cloud Network (VCN)
-
-1. Go to **"Virtual Cloud Networks"** under the **"Networking"** tab.  
-   
-  ![Screenshot](https://github.com/user-attachments/assets/057fbd90-b3e0-41b3-a05f-a5e89cf7729b)
-
-2. **Create a VCN**  
-   - Name it as you like  
-   - Set **IPv4 CIDR Block** to: `10.0.0.0/16`
-
-3. Once created, go to the **"Subnets"** tab and click **"Create Subnet"**:  
-   - Set a custom name  
-   - Set **IPv4 CIDR Block** to: `10.0.0.0/24`  
-   - Select the **"Default Security List for [VCN name]"**  
-   - Leave other options as default
-
-4. In the **"Gateways"** tab:  
-   - Create an **Internet Gateway**
-
-5. In the **"Routing"** tab:  
-   - Select **"Default Route Table for [VCN]"**  
-   - Go to the **"Route Rules"** tab → **Add Route Rule**:  
-     - **Target Type**: Internet Gateway  
-     - **Destination CIDR Block**: `0.0.0.0/0`  
-     - **Target**: Select the Internet Gateway created earlier
-
-6. In the **"Security"** tab:  
-   - Select **"Default Security List for [VCN]"**  
-   - Go to **"Security Rules"** → **Add Ingress Rules**:  
-     - **Source CIDR**: `0.0.0.0/0`  
-     - **Source Port Range**: All  
-     - **Destination Port Range**: Add needed rules, such as (one rule per port):  
-       - TCP 22 → SSH  
-       - TCP 80 → HTTP  
-       - TCP 443 → HTTPS  
-       - TCP 25565 → Minecraft (optional)
-       - (any other port needed)
-
-> ℹ️ For any unspecified options, you can safely leave the default values.
+- Create a free account at [https://cloud.oracle.com/](https://cloud.oracle.com/)
+- A credit card is required (but won’t be charged if you stay within free tier limits)
 
 ---
 
-#### 3. ⚙️ Configure the Instance
+#### 🌐 Configure the Virtual Cloud Network (VCN)
 
-1. Go to the **"Instances"** menu in the **"Compute"** tab.  
-   
-  ![Screenshot](https://github.com/user-attachments/assets/6a131817-7bfb-4d7d-8ed8-b3748cf339d4)
+1. Go to **Networking → Virtual Cloud Networks**
+2. **Create VCN**  
+   - Set a name  
+   - Use `10.0.0.0/16` as IPv4 CIDR Block
 
-2. Click **"Create Instance"**:
-   - Choose a custom name
-   - Select an OS Image: latest **Oracle Linux** or **Canonical Ubuntu**
+3. **Subnets** → Create a new one  
+   - Use `10.0.0.0/24` as CIDR  
+   - Assign the default security list
 
-3. **Change the Shape**:
-   - Choose **Ampere → VM.Standard.A1.Flex**  
-   - Adjust CPU and RAM (e.g., 1 OCPU, 6 GB RAM for Always Free)  
-   ![Screenshot](https://github.com/user-attachments/assets/72af5ff1-ae85-46aa-821f-39a6a7abc141)
+4. **Gateways** → Create an **Internet Gateway**
 
-4. In the **Network** section:
-   - Select the **VCN** and **Subnet** created earlier
-   - Ensure **"Automatically assign public IPv4 address"** is **checked**
-   - Generate SSH keys (if needed):
-     >⚠️ Download Private and Public Keys
+5. **Routing**  
+   - Edit route table  
+   - Add rule:  
+     - Destination: `0.0.0.0/0`  
+     - Target: Internet Gateway
 
-5. You can leave the **Boot volume** (Storage) as default, or define a custom size (up to 200Go for the Free Plan).
+6. **Security List** → Add Ingress Rules:
+   - Source: `0.0.0.0/0`
+   - Open ports as needed (one rule per port):  
+     - TCP 22 (SSH)  
+     - TCP 80 (HTTP)  
+     - TCP 443 (HTTPS)  
+     - TCP 25565 (Minecraft)  
+     - …others as needed
 
----
-
-#### 4. 🖱️ Launching the Auto-Click Script
-
-- After completing the configuration, you should see the **“Create”** button at the bottom of the page.
-- The **Tampermonkey Auto-Click script** will display a status bar in the top-left corner.
-- Click the **"Start"** button in the status bar — it will:
-  - Click the **"Create"** button every 30 seconds
-  - Prevent session timeouts by clicking **“Continue working”** when prompted
-  - Stop automatically once the instance is created
-
-> ⏳ Note: It can take hours — even days — to successfully create an Always Free instance, depending on availability. Be patient.
-
-💡 **Oracle may disconnect you** after a long active session. Be sure to check in regularly and restart the creation process if needed.
+> ℹ️ You can safely leave other settings as default.
 
 ---
 
-#### 5. ⏱️ Don't want to wait ?
+#### ⚙️ Create the Instance
 
-If the need is urgent or the wait too long, you can upgrade your Always Free account to a Pay As You Go account.
-You'll be charged ~$100 (refunded immediately), but you'll be able to create an instance almost instantly.
-If you choose this solution, be careful not to exceed the Always Free ceiling (4 OCPU, 24 Gb RAM, 2 Public IPs, ...).
-You can set up invoice alerts to ensure you never exceed quotas.
+1. Go to **Compute → Instances**  
+2. Click **Create Instance**
+   - Name it
+   - OS Image: Ubuntu
 
-🎉 Good luck! With this setup and script, you're ready to grab your Always Free server automatically.
+3. **Change Shape**  
+   - Choose **Ampere → VM.Standard.A1.Flex**
+   - Select **OCPU / RAM** (maximum **4 OCPU / 24 GB RAM**)
+
+4. **Networking**  
+   - Use the VCN/subnet created earlier  
+   - Enable public IPv4 address  
+   - Generate and download SSH keys
+
+5. **Storage**  
+   - Default is fine, or set custom volume (up to 200 GB free)
+
+---
+
+#### 🖱️ Launch the Auto-Click Script
+
+After completing the instance config:
+
+- Scroll to the bottom and ensure the **"Create"** button is visible
+- The script will show a floating **Start** button
+- Click **Start** — it will:
+  - Click “Create” every 30s
+  - Prevent disconnects
+  - Stop once successful
+
+> ⏳ **It may take hours or days** to get a free instance due to capacity limits.
+
+💡 Oracle might disconnect you — check in regularly to restart if needed.
+
+---
+
+#### ⏱️ In a Hurry?
+
+Need a server immediately? You can upgrade your account to **Pay As You Go**.
+
+- Requires a ~$100 pre-auth charge (refunded shortly)
+- Lets you **instantly create an instance**
+- But: stay within **Always Free limits** (4 OCPU, 24 GB RAM, 2 public IPs)
+
+📉 Set billing alerts to avoid unexpected charges.
+
+---
+
+🎉 **That's it!** You're now equipped to get a free cloud server automatically with a few simple steps.
