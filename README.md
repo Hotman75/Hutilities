@@ -13,7 +13,8 @@ I'm sharing here a list of free (or almost free) tools that I use regularly and 
 - [↔️ DNS](#️-dns)
 - [📱 Smartphone](#-smartphone)
   - [▶️ YouTube ReVanced](#%EF%B8%8F-youtube-revanced)
-- [🎬 Home Cinema Setup](#-home-cinema-setup)
+- [📺 Android TV](#-android-tv)
+- [🎬 Movies/TV Shows](#-moviestv-shows)
 - [☁️ Personal Cloud Server](#️-personal-cloud-server)
 - [🧠 AI](#-ai)
   - [🎭 FaceFusion](#-facefusion)
@@ -75,7 +76,20 @@ You can use ReVanced to patch other applications, but be careful with Spotify, a
 
 ---
 
-## 🎬 Home Cinema Setup
+## 📺 Android TV
+
+Applications to get a flawless experience on Android TV:
+
+| Application | Description |
+|----------|-------------|
+| [Stremio](#-moviestv-shows) | Replace Netflix, Disney+,... (See below 👇) |
+| [SmartTube](https://github.com/yuliskov/SmartTube) | Replace Youtube |
+| [S0undTV](https://github.com/S0und/S0undTV?tab=readme-ov-file) | Replace Twitch |
+| [TiviMate](https://play.google.com/store/apps/details?id=ar.tvplayer.tv) | Best IPTV Player - you will still need to get an IPTV provider, premium version is advised (~34€) |
+
+---
+
+## 🎬 Movies/TV Shows
 
 For streaming movies/TV shows, I recommend:
 
